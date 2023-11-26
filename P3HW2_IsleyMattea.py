@@ -6,7 +6,7 @@
 #Get input from the user
 emp_name = input("Enter employee's name: ")
 emp_hours = int(input("Enter number of hours worked: "))
-pay_rate = float(input("Enter employee's pay rate: "))
+emp_pay = float(input("Enter employee's pay rate: "))
 print("----------------------------")
 print("Employee name: ", emp_name)
 
@@ -24,5 +24,9 @@ ot_pay = (emp_pay * 1.5) * ot_hours
 reg_pay = (emp_pay * reg_hours)
 gross_pay = ot_pay + reg_pay
 
-
-
+#Display calculated data back to user
+print()
+print("Hours worked", "  ", "Pay Rate", "  ", "OverTime", "  ", "OverTime Pay", "  ", "RegHour Pay",  "  ", "Gross Pay") 
+print("---------------------------------------------------------------------------------")
+print(emp_hours, "         ", emp_pay, "         ", ot_hours, "         ", ot_pay, "          ", "$",reg_pay,
+      "         ", "$",gross_pay)
