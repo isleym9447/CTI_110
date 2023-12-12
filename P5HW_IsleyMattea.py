@@ -41,17 +41,22 @@ def subtract():
 
 #This function defines the user guessing the answer. While the user inputs
 #the wrong answer, allow the user to guess again until correct.
-def guessing(user_guess, correct_answer):
+def guessing(guess, correct_answer):
     num_guesses = 0
-    while user_guess != correct_answer:
+    
+    while guess != correct_answer:
         num_guesses += 1
-        if user_guess > correct_answer:     #If guess is too high
-            print("Sorry, your guess is too low. Try again!")
+        if guess > correct_answer:     #If guess is too high
+            print("Sorry, your guess is too high. Try again!")
+            guess = int(input("Guess again?: "))
         else:                               #If guess is too low
-            print("Sorry, your guess is too high. Try again!") 
-    else:                                   #Guess is correct, the while loop breaks
-        print("Congratulations!! Your guess is correct! You smarty pants! :)")
-        print(f"It took you {num_guesses} incorrect guesses to get the answer correct.")
+            print("Sorry, your guess is too low. Try again!")
+            guess = int(input("Guess again?: "))   #Represents guess
+        #Guess is correct, the while loop breaks
+    print()
+    print("Congratulations!! Your guess is correct! You smarty pants! :)")
+    print()
+    print(f"It took you {num_guesses} incorrect guesses to get the answer correct.")
 
 
     
@@ -61,12 +66,26 @@ def guessing(user_guess, correct_answer):
 def main():
     show_menu()
     user_option = int(input("Please choose one of the menu options: "))
-    if user_option == 1:
-        rand_sum = add   #Represents the correct answer in this case the added random numbers
-        my_guess = int(input("Enter your guess!: "))   #Represents guess
-        guessing (my_guess, ran_sum)
+    while user_option != 3:
+        if user_option == 1:
+            rand_sum = add()   #Represents the correct answer in this case the added random numbers
+            my_guess = int(input("Enter your guess!: "))   #Represents guess
+            guessing (my_guess, rand_sum)
+            print()
+            show_menu()
+            user_option = int(input("Please choose one of the menu options: "))
+        if user_option == 2:
+            rand_sum = subtract()   #Represents the correct answer in this case the added random numbers
+            my_guess = int(input("Enter your guess!: "))   #Represents guess
+            guessing (my_guess, rand_sum)
+            print()
+            show_menu()
+            user_option = int(input("Please choose one of the menu options: "))
 
-
+    #If user_choice == 3, the while loop breaks
+    print()
+    print("Thank you for playing! Goodbye!")
+            
     
 #Call main function
 if __name__ == "__main__":
